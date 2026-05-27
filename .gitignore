@@ -1,0 +1,28 @@
+# Build outputs
+**/target/
+**/out/
+**/build/
+
+# Maven wrapper (keep if you add it later)
+.mvn/wrapper/maven-wrapper.jar
+
+# IDEs
+.idea/
+*.iml
+.classpath
+.project
+.settings/
+.vscode/
+
+# OS
+Thumbs.db
+Desktop.ini
+
+# Logs
+*.log
+
+# Local config overrides (keep sample configs in repo)
+**/*.properties.local
+
+# Course sample PDF (avoid accidental public redistribution)
+task3/基于XML数据集成的集成教务系统示例.pdf
