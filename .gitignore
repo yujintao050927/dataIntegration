@@ -1,56 +1,28 @@
-# Compiled class files
-*.class
+# Build outputs
+**/target/
+**/out/
+**/build/
 
-# Log files
-*.log
-
-# BlueJ files
-*.ctxt
-
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
-
-# Package Files
-*.jar
-*.war
-*.nar
-*.ear
-*.zip
-*.tar.gz
-*.rar
-
-# Virtual machine crash logs
-hs_err_pid*
-replay_pid*
-
-# Maven
-target/
-pom.xml.tag
-pom.xml.releaseBackup
-pom.xml.versionsBackup
-pom.xml.next
-release.properties
-dependency-reduced-pom.xml
-buildNumber.properties
-.mvn/timing.properties
+# Maven wrapper (keep if you add it later)
 .mvn/wrapper/maven-wrapper.jar
 
-# IDE
+# IDEs
 .idea/
 *.iml
-*.iws
-*.ipr
-.vscode/
-.settings/
 .classpath
 .project
+.settings/
+.vscode/
 
 # OS
-.DS_Store
 Thumbs.db
+Desktop.ini
 
-# Temporary files
-*.tmp
-*.bak
-*.swp
-*~
+# Logs
+*.log
+
+# Local config overrides (keep sample configs in repo)
+**/*.properties.local
+
+# Course sample PDF (avoid accidental public redistribution)
+task3/基于XML数据集成的集成教务系统示例.pdf
