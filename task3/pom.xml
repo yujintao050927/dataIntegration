@@ -11,6 +11,8 @@
     <module>integration-xslt</module>
     <module>integration-crossselect</module>
     <module>dept-b-app</module>
+    <module>dept-c-app</module>
+    <module>integration-server</module>
   </modules>
 
   <properties>
