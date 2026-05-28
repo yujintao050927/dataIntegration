@@ -78,29 +78,30 @@ public final class DeptCGui {
 
         JFrame f = new JFrame("院系C - 学生选课系统");
         f.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        f.setSize(720, 500);
+        f.setSize(750, 520);
         f.setResizable(false);
+        f.setLocationRelativeTo(null);
 
         JPanel root = new JPanel(new GridBagLayout());
-        root.setBackground(BG);
+        root.setBackground(new Color(245, 247, 250));
 
         JPanel card = new JPanel(new BorderLayout(20, 20));
-        card.setPreferredSize(new Dimension(520, 340));
-        card.setBackground(CARD);
+        card.setPreferredSize(new Dimension(600, 380));
+        card.setBackground(Color.WHITE);
         card.setBorder(BorderFactory.createCompoundBorder(
-                BorderFactory.createLineBorder(BORDER),
+                BorderFactory.createLineBorder(new Color(200, 215, 240), 1),
                 new EmptyBorder(35, 40, 35, 40)
         ));
 
         JLabel title = new JLabel("院系C - 学生选课系统", SwingConstants.CENTER);
-        title.setFont(new Font("微软雅黑", Font.BOLD, 30));
+        title.setFont(new Font("微软雅黑", Font.BOLD, 28));
         title.setForeground(new Color(30, 64, 175));
 
         JLabel subTitle = new JLabel("Department C Course Selection System", SwingConstants.CENTER);
         subTitle.setFont(new Font("微软雅黑", Font.PLAIN, 14));
         subTitle.setForeground(new Color(120, 120, 120));
 
-        JPanel top = new JPanel(new GridLayout(2, 1));
+        JPanel top = new JPanel(new GridLayout(2, 1, 0, 5));
         top.setOpaque(false);
         top.add(title);
         top.add(subTitle);
@@ -113,24 +114,49 @@ public final class DeptCGui {
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(12, 10, 12, 10);
         gbc.anchor = GridBagConstraints.WEST;
+        gbc.weightx = 1.0;
 
-        JLabel accLabel = createFieldLabel("账号");
-        JLabel pwdLabel = createFieldLabel("密码");
+        JLabel accLabel = new JLabel("账号");
+        accLabel.setFont(new Font("微软雅黑", Font.BOLD, 15));
+        accLabel.setForeground(new Color(60, 60, 60));
+        
+        JLabel pwdLabel = new JLabel("密码");
+        pwdLabel.setFont(new Font("微软雅黑", Font.BOLD, 15));
+        pwdLabel.setForeground(new Color(60, 60, 60));
 
-        JTextField acc = createInputField();
-        JPasswordField pwd = createPasswordField();
+        JTextField acc = new JTextField(30);
+        acc.setFont(new Font("微软雅黑", Font.PLAIN, 16));
+        acc.setPreferredSize(new Dimension(380, 45));
+        acc.setMinimumSize(new Dimension(380, 45));
+        acc.setMaximumSize(new Dimension(380, 45));
+        acc.setBorder(BorderFactory.createLineBorder(new Color(200, 200, 200), 1));
 
+        JPasswordField pwd = new JPasswordField(30);
+        pwd.setFont(new Font("微软雅黑", Font.PLAIN, 16));
+        pwd.setPreferredSize(new Dimension(380, 45));
+        pwd.setMinimumSize(new Dimension(380, 45));
+        pwd.setMaximumSize(new Dimension(380, 45));
+        pwd.setBorder(BorderFactory.createLineBorder(new Color(200, 200, 200), 1));
+
+        gbc.fill = GridBagConstraints.NONE;
+        gbc.weightx = 0;
         gbc.gridx = 0;
         gbc.gridy = 0;
         form.add(accLabel, gbc);
 
+        gbc.fill = GridBagConstraints.NONE;
+        gbc.weightx = 1;
         gbc.gridx = 1;
         form.add(acc, gbc);
 
+        gbc.fill = GridBagConstraints.NONE;
+        gbc.weightx = 0;
         gbc.gridx = 0;
         gbc.gridy = 1;
         form.add(pwdLabel, gbc);
 
+        gbc.fill = GridBagConstraints.NONE;
+        gbc.weightx = 1;
         gbc.gridx = 1;
         form.add(pwd, gbc);
 
@@ -139,7 +165,14 @@ public final class DeptCGui {
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
         buttonPanel.setOpaque(false);
 
-        JButton login = createButton("登 录", PRIMARY, 200, 48);
+        JButton login = new JButton("登 录");
+        login.setPreferredSize(new Dimension(200, 48));
+        login.setFont(new Font("微软雅黑", Font.BOLD, 16));
+        login.setBackground(new Color(59, 130, 246));
+        login.setForeground(Color.WHITE);
+        login.setFocusPainted(false);
+        login.setBorderPainted(false);
+        login.setCursor(new Cursor(Cursor.HAND_CURSOR));
 
         login.addActionListener(e -> {
             try {
@@ -675,14 +708,31 @@ public final class DeptCGui {
         JButton button = new JButton(text);
 
         button.setPreferredSize(new Dimension(width, height));
+        button.setMinimumSize(new Dimension(width, height));
 
         button.setBackground(bg);
         button.setForeground(Color.WHITE);
 
-        button.setFont(new Font("微软雅黑", Font.BOLD, 16));
+        button.setFont(new Font("微软雅黑", Font.BOLD, 18));
 
         button.setFocusPainted(false);
         button.setBorderPainted(false);
+        
+        button.setBorder(BorderFactory.createEmptyBorder());
+        button.setOpaque(true);
+        
+        button.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        
+        button.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                button.setBackground(bg.darker());
+                button.setBorder(BorderFactory.createLineBorder(bg.darker().darker(), 2));
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                button.setBackground(bg);
+                button.setBorder(BorderFactory.createEmptyBorder());
+            }
+        });
         button.setContentAreaFilled(true);
         button.setOpaque(true);
 
